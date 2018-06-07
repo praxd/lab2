@@ -1,0 +1,43 @@
+{{>layout/header}}
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Pessoas</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <!--button class="btn btn-sm btn-outline-secondary">Salvar</button-->
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+
+<div class="col-md-4 col-sm-4">
+
+<div class="box box-primary">
+
+<div class="box-header with-border">
+	<h3 class="box-title">&nbsp;Adicionar pessoa</h3>
+</div>
+<!-- /.box-header -->
+
+<div class="box-body">
+
+{{#pessoa}}
+<form action="/pessoa/" method="POST">
+  <div class="form-group">
+    <label for="titulo">Nome</label>
+	<input type="text" class="form-control" name="name" value="{{name}}" placeholder="Nome">
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+{{/pessoa}}
+
+</div> <!--div class="box-body"-->
+
+</div> <!--div class="box box-default"-->
+
+</div> <!--div class="col-xs-4"-->
+
+</div> <!--div class="row"-->
+
+{{>layout/footer}}

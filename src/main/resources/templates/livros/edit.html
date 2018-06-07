@@ -1,0 +1,50 @@
+{{>layout/header}}
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Livros</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <!--button class="btn btn-sm btn-outline-secondary">Salvar</button-->
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+
+<div class="col-md-4 col-sm-4">
+
+<div class="box box-primary">
+
+<div class="box-header with-border">
+	<h3 class="box-title">&nbsp;Livros</h3>
+</div>
+<!-- /.box-header -->
+
+<div class="box-body">
+
+<form action="/livros/{{livro.id}}" method="POST">
+  <input type="hidden" name="_method" value="put" />
+  <div class="form-group">
+    <label for="titulo">Titulo</label>
+	<input type="text" class="form-control" name="titulo" value="{{livro.titulo}}" placeholder="Titulo">
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descricao</label>
+	<input type="text" class="form-control" name="descricao" value="{{livro.descricao}}" placeholder="Descricao">
+  </div>
+  <div class="form-group">
+    <label for="isbn">Isbn</label>
+	<input type="text" class="form-control" name="isbn" value="{{livro.isbn}}" placeholder="Isbn">
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+</div> <!--div class="box-body"-->
+
+</div> <!--div class="box box-default"-->
+
+</div> <!--div class="col-xs-4"-->
+
+</div> <!--div class="row"-->
+
+{{>layout/footer}}
