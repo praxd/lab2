@@ -1,7 +1,7 @@
 {{>layout/header}}
 
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Livros</h1>
+    <h1 class="h2">Pessoa</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
       	<a href="/pessoa" class="btn btn-sm btn-outline-secondary">Novo</a>
@@ -13,16 +13,18 @@
 <tr>
 	<th>#</th>
 	<th>Nome</th>
+	<th>Departamento</th>
 	<th> Actions</th>	
 </tr>
 {{#pessoas}}
     <tr>
     	<td>{{id}}</td>
     	<td>{{name}}</td>
+    	<td>{{#departamento}} {{name}} {{/departamento}} </td>
     	
     	<td>			 
 			<a href="/pessoa/edit/{{id}}" class="btn btn-primary btn-xs">Editar</a>			
-			<form action="/livros/{{id}}" method="POST">
+			<form action="/pessoa/{{id}}" method="POST">
 				<input type="hidden" name="_method" value="delete" />
 				<button type="submit" class="btn btn-default">delete</button>
 			</form>		

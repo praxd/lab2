@@ -9,6 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,6 +43,9 @@ public class People {
 	@LastModifiedDate
 	private Date modifiedAt;
 	
+	@ManyToOne
+	private Departamento departamento;	
+
 	public People(int id, String name) {
 		this.id = id;
 		this.name = name;
@@ -84,6 +88,14 @@ public class People {
 
 	public void setModifiedAt(Date modifiedAt) {
 		this.modifiedAt = modifiedAt;
+	}
+	
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 	
 }
