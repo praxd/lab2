@@ -83,14 +83,19 @@ public class SiteController {
     public String edit(@PathVariable long id, Map<String, Object> model) {               
         
         model.put("pessoa", this.peopleRepository.findOne(id));
+        model.put("departamentos", this.depRepository.findAll());
         return "pessoa/edit";
     }
 	
 	@PutMapping("/pessoa/{id}")
-	public String update(@PathVariable long id, String name) {
+	public String update(@PathVariable long id, @ModelAttribute("pessoa") People people, String departamento) {	
 		People temp = this.peopleRepository.findOne(id);
+		Departamento dep1 = new Departamento();
+		dep1.setId(Long.parseLong(departamento));
+		
 		if (temp != null) { 
-			temp.setName(name);
+			temp.setName(people.getName());
+			temp.setDepartamento(dep1);
 			this.peopleRepository.save(temp);
 		}else {
 			System.out.println("Pessoa não existe");
